@@ -2,6 +2,8 @@ const input = document.querySelector('one'),
       button = document.querySelector('button'),
       conatainer = document.querySelector('.container');
 
+// Если есть необходимость проверить работу ы браузере, то необходимо подключить скрипт а файле index.html
+
 function renderImage(url){
     url.forEach(item =>{
         const image = document.createElement('img');

@@ -2,6 +2,8 @@ const button = document.querySelector('button'),
       inputs = document.querySelectorAll('input'),
       container = document.querySelector('.container');
 
+// Если есть необходимость проверить работу ы браузере, то необходимо подключить скрипт а файле index.html
+
     function renderImage(url){
         container.textContent = ''; 
         const image = document.createElement('img');
