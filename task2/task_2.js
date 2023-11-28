@@ -11,7 +11,7 @@ const json = `{
             "prof": "pilot"
             }
         ]
-    }`
+    }`;
 
 const data = JSON.parse(json);
 console.log(data.list);
