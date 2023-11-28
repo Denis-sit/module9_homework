@@ -2,8 +2,6 @@ const button = document.querySelector('button'),
       inputs = document.querySelectorAll('input'),
       container = document.querySelector('.container');
 
-// Если есть необходимость проверить работу ы браузере, то необходимо подключить скрипт а файле index.html
-
 const requestToTheServer = (page, limit) =>{
     return fetch(`https://jsonplaceholder.typicode.com/photos?_page=${page}&_limit=${limit}`)
             .then((response) =>{ return response.json()})
@@ -26,11 +24,11 @@ function renderImage(data){
 
 button.addEventListener('click', async (e) =>{
     e.preventDefault();
-        let page = +inputs[0].value,
-            limit = +inputs[1].value;
+    let page = +inputs[0].value,
+        limit = +inputs[1].value;
 
-        localStorage.setItem('page', +inputs[0].value);
-        localStorage.setItem('limit', +inputs[1].value);
+    localStorage.setItem('page', +inputs[0].value);
+    localStorage.setItem('limit', +inputs[1].value);
 
 
     if((typeof(page) !== 'number' ||  isNaN(page) || page < 1 || page > 10) &&
