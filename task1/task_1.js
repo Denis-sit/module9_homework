@@ -23,37 +23,31 @@ const xmlString = `
 `
 const xmlParse = parser.parseFromString(xmlString, 'text/xml');
 
-const list = xmlParse.querySelector('list'),
-      student = list.querySelectorAll('student'),
-      nameTeg = list.querySelectorAll('name'),
-      firstName = list.querySelectorAll('first'),
-      secondName = list.querySelectorAll('second'),
-      age = list.querySelectorAll('age'),
-      prof = list.querySelectorAll('prof'),
-      langAttribute = [];
-      
-nameTeg.forEach(item =>{
-    langAttribute.push(item.getAttribute('lang'));
-});      
+const xmlTable = xmlParse.querySelector('list'),
+      students = xmlTable.querySelectorAll('student'),
+      result = {};
+      result.list = [];
 
-const result = {
-    list: [
-        {
-            name :`${firstName[0].textContent} ${secondName[0].textContent}`,
-            age: age[0].textContent,
-            prof: prof[0].textContent,
-            lang: langAttribute[0]   
-        },
-        {   
-            name : `${firstName[1].textContent} ${secondName[1].textContent}`,
-            age: age[1].textContent,
-            prof: prof[1].textContent,
-            lang: langAttribute[1]   
-        }
-    ]
-};
+students.forEach((item) =>{
+  let nameTeg = item.querySelector('name'),
+    firstName = nameTeg.querySelector('first'),
+    secondName = nameTeg.querySelector('second'),
+    age = item.querySelector('age'),
+    prof = item.querySelector('prof');
+
+  const student = {
+    name :`${firstName.textContent} ${secondName.textContent}`,
+    age: age.textContent,
+    prof: prof.textContent,
+    lang: nameTeg.getAttribute('lang')  
+  }
+
+  result.list.push(student);
+  
+});
 
 console.log(result);
+
 
 
 
